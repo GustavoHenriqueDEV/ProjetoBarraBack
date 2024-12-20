@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import projetoTour.projeto.model.Comercio;
 import projetoTour.projeto.repository.ComercioRepository;
+import service.ComercioService;
 
 import java.util.List;
 
@@ -14,9 +15,11 @@ public class ComercioController {
     @Autowired
     private ComercioRepository comercioRepository;
 
+    private ComercioService comercioService;
+
     @GetMapping
     public List<Comercio> getAllComercios() {
-        return comercioRepository.findAll();
+        return comercioService.getAllComercios();
     }
     @PostMapping
     public Comercio createComercio(@RequestBody Comercio comercio) {
