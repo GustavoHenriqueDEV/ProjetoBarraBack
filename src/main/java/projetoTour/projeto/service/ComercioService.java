@@ -1,4 +1,4 @@
-package service;
+package projetoTour.projeto.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +11,13 @@ import java.util.List;
 @Service
 public class ComercioService {
 
-    @Autowired
-    ComercioRepository comercioRepository;
+    private final ComercioRepository comercioRepository;
 
-    public List<Comercio>getAllComercios() {
+    public ComercioService(ComercioRepository comercioRepository) {
+        this.comercioRepository = comercioRepository;
+    }
+
+    public List<Comercio> getAllComercios() {
         return comercioRepository.findAll();
     }
 
