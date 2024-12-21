@@ -1,4 +1,5 @@
 package projetoTour.projeto.model;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -74,6 +75,7 @@ public class Produto {
     @Column(name = "preco")
     private Double preco;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "comercio_id") // Chave estrangeira para 'comercio'
     private Comercio comercio;

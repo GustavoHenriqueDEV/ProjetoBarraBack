@@ -1,6 +1,7 @@
 package projetoTour.projeto.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -120,6 +121,7 @@ public class Comercio {
     @JoinColumn(name = "usuario_id") // Chave estrangeira para o usuário
     private Usuario usuario;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "comercio", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Produto> produtos;
 
